@@ -3,6 +3,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 const path = require('path');
+const nodemailer = require('nodemailer');
+const randomstring = require('randomstring');
 // const bcrypt = require('bcrypt');
 const app = express();
 const cors = require("cors");
@@ -16,7 +18,7 @@ app.set('views',path.join(__dirname,''));
 const connection = mysql.createConnection({
     host:"localhost",
     user:"root",
-    password:"Ankeet@1234",
+    password:"root",
      database:'studentdb'
 });
 
@@ -35,7 +37,9 @@ connection.connect((err) => {
       name VARCHAR(255),
       email VARCHAR(255),
       password varchar(255),
-      phone_number VARCHAR(15)
+      phone_number VARCHAR(15),
+      verification_token VARCHAR(255),
+      is_verified VARCHAR(255)
     )
   `;
 
@@ -73,20 +77,46 @@ app.get('/log',(req,res)=>{
   res.render('index1');
 })
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ms1381598@gmail.com',
+    pass: 'awsz cjnv obbb dmaq',
+  }
+});
+
 // Handle form submissions
 app.post('/submit', (req, res) => {
   // const { name, email } = req.body;
   const { name, email,password,number} = req.body;
+  const token = randomstring.generate(64);
 
   // Insert form data into the MySQL table
-  const insertDataSQL = 'INSERT INTO my_table (name, email,password,  phone_number) VALUES (?, ?,?,?)';
-  const data = [name, email,password,number];
+  const insertDataSQL = 'INSERT INTO my_table (name, email, password, phone_number, verification_token, is_verified) VALUES (?, ?,?,?, ?, 0)';
+  const data = [name, email,password,number, token];
+  console.log("token", token);
 
   connection.query(insertDataSQL, data, (err, results) => {
     if (err) {
       console.error('Error inserting data:', err);
       res.sendStatus(500);
     } else {
+      const verificationLink = `http://localhost:8080/verify?token=${token}`;
+      const mailOptions = {
+        from: 'ms1381598@gmail.com',
+        to: 'ms1381597@gmail.com',
+        subject: "Email Berugshd",
+        text: `clich herew ${verificationLink}`,
+      };
+
+      transporter.sendMail(mailOptions, (err) => {
+        if(err) throw err;
+        console.log("sent email");
+      });
+
+      res.send('Check your email for link');
+
+
       console.log('Data inserted successfully');
 //       res.send(`<html>
 //       <body>
@@ -97,6 +127,36 @@ res.render('confirmation',{submitted:true});
     }
   });
 });
+
+//handle email verification
+app.get('/verify', (req, res) => {
+  const token = req.query.token;
+
+  console.log(token);
+
+  // check if token exist in db
+  const selectQuery = `SELECT * FROM my_table WHERE verification_token = ?`;
+  connection.query(selectQuery, [token], (err, results) => {
+    if (err) throw err;
+
+    if(results.length > 0){
+      //Mark email as verified
+      const updateQuery = `UPDATE my_table SET is_verified = 1 WHERE verification_token = ?`;
+      connection.query(updateQuery, [token], (err) => {
+        if (err) throw err;
+        res.send("Email verified");
+        // const filePath=path.resolve(__dirname,"./home/home.html");
+        // console.log('htmlfilepath:',filePath);
+        // res.sendFile(filePath);
+      });
+
+    }
+    else{
+      res.send("Invalid Verification link");
+    }
+  })
+
+})
 
 const query='SELECT * FROM my_table';
 // const query='SELECT name FROM my_table';
