@@ -1,0 +1,43 @@
+/* Center the table and heading */
+#userTable, .table-heading {
+    margin: 0 auto;
+    width: 70%;
+}
+
+/* Style the table heading */
+.table-heading {
+    text-align: center;
+    padding: 20px;
+    background-color: #120f0f;
+    color: #fff;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Style the table */
+#userTable {
+    border-collapse: collapse;
+}
+
+/* Style the table header */
+#userTable th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style the table rows */
+#userTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#userTable td, #userTable th {
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Add some hover effect for table rows */
+#userTable tr:hover {
+    background-color: #ddd;
+}

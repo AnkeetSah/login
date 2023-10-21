@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="style.css">   -->
+    <style>
+        * {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  body {
+   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    background-color: #e3e9f7;
+    font-family: "Noto Serif", serif;
+    font-family: "Rubik", sans-serif;
+  }
+ 
+  li {
+    list-style: none;
+  }
+
+  .navbar a {
+    
+    color: #212526;
+    text-decoration: none;
+    font-weight: bolder;
+    -webkit-text-stroke:.1px rgb(24, 5, 5);
+  }
+  .navbar {
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 24px;
+    background-color: antiquewhite;
+  }
+  .nav-menu {
+    display: flex;
+    justify-content: item space-between;
+    gap: 60px;
+  }
+
+  .nav-branding {
+    font-size: 2rem;
+   
+  }
+
+  .nav-link {
+    transition: 0.7s ease;
+    font-size: 20px;
+    display: block;
+    font-weight: bolder;
+    padding: 9px;
+    border-radius: 50px;
+  }
+  .nav-link:hover {
+    background-color: rgb(16, 14, 5);
+    /* background-color: #675cff; */
+    color: antiquewhite;
+    -webkit-text-stroke:0px rgb(17, 15, 15);
+  }
+
+  .hamburger {
+    cursor: pointer;
+    display: none;
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(17, 8, 8);
+  }
+
+  .container{
+   padding: 10px;
+  width: 100%;
+  display: grid;
+   height: 100vh;
+  grid-template-columns: .4fr .4fr .4fr;
+  grid-template-rows:.5fr .2fr;
+  grid-gap: 20px;
+  grid-template-areas: "child1 child2 child3"
+                        "item1 item2 item3"
+  }
+
+   .child1{
+    grid-area: child1;
+   }
+   .child2{
+    grid-area: child2;
+   }.child3{
+    grid-area: child3;
+   }
+    
+   .item1{
+    grid-area: item1;
+   }
+   .item2{
+    grid-area: item2;
+   }
+   .item3{
+    grid-area: item3;
+   }
+
+
+   @media only screen and (max-width: 550px) {
+
+   
+    .hamburger {
+      display: block;
+    
+    }
+
+    .hamburger.active .bar2 {
+      opacity: 0;
+    }
+
+    .hamburger.active .bar1{
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar3 {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-link {
+      height: 40px;
+      margin-bottom: -30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: item center;
+      border-radius: 10px;
+      font-weight: bolder;
+    }
+
+    .nav-menu {
+      position: fixed;
+      left: -100%;
+      top: 70px;
+      gap: 0px;
+      flex-direction: column;
+      background: rgba(255, 255, 255, 0.19);
+      background: antiquewhite;
+      /* border-radius: 16px; */
+      /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(13px);
+      -webkit-backdrop-filter: blur(13px); */
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      height: 100%;
+      justify-content: item flex-start;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .nav-item {
+      margin: 16px 0;
+     
+     
+    }
+
+    .nav-menu.active {
+      left: -15%;
+    }
+
+
+    
+    
+  }
+  
+  .nav-branding{
+    font-weight: bolder;
+    -webkit-text-stroke:.1px rgb(21, 14, 14);
+   color: rgb(17, 8, 8)
+  }
+
+   .child {
+    /* width: 400px; */
+    margin-bottom: 20px;
+   
+  }
+
+   .child img{
+    width: 100%;
+  }
+
+    .item{
+    /* background-color: #675cff; */
+    background-color: antiquewhite;
+    margin-top: -40px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+        }
+
+   .item h1 {
+  
+      margin-left: 30px;
+      color: rgb(40, 1, 1);
+   }
+    .item h2{
+      margin-left: 30px;
+      color: grey;
+   }
+    
+    
+
+   
+   
+   
+
+   .arrow{
+     width: 20px;
+     margin-left: 4px;
+   }
+ 
+   .explore{
+    display: flex;
+    width: 97px;
+    justify-content: space-between;
+    padding: 5px;
+    font-weight: bolder;
+     text-decoration: none;
+    margin-left: 30px;
+      color:black;
+      box-shadow: 2px 2px 2px black;
+      border: 1px solid;
+      margin-top: 10px;
+      font-weight: bolder;
+    -webkit-text-stroke:.2px rgb(24, 5, 5);
+      background: linear-gradient(to left, rgb(239, 214, 182) 50%, rgb(19, 18, 17) 50%) right;
+background-size: 200%;
+transition: .3s ease-out;
+
+}
+
+   
+   .explore:hover{
+    background-color: rgb(19, 18, 17);
+  
+   color: rgb(239, 214, 182);
+    border: 1px solid black;
+    background-position: left;
+   }
+
+   
+
+   .explore:hover{
+   color: antiquewhite;
+   }
+  
+
+  
+
+   .item h1{
+    font-size: xxx-large;
+    font-family: "scotch-display";
+   }
+
+   
+     .child2{
+        background: url("https://images.unsplash.com/photo-1676734627786-a3662ff6a243?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80");
+        background-size: cover;
+     } .child1{
+        background: url("https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+        background-size: cover;
+     } .child3{
+        background: url("https://www.oyorooms.com/blog/wp-content/uploads/2018/03/fe-34.jpg");
+        background-size: cover;
+     }
+
+     @media only screen and (max-width: 770px){
+        .container{
+            padding: 5px;
+          height: 200vh;
+          margin-top: 40px;
+           grid-template-columns: 1fr;
+           grid-template-rows: 2fr 1fr 2fr 0.4fr 2fr 0.4fr;
+           grid-template-areas:
+                        "child1"
+                        "item1"
+                        "child2"
+                        "item2"
+                        "child3"
+                        "item3" ;
+        }
+    
+            .child{
+              background-size: 100% 100%;
+            }
+            .navbar{
+              position: fixed;
+              min-height: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 24px;
+        background-color: antiquewhite;
+        width: 100vw;
+         margin-top: -40px;
+            } 
+         
+     }
+
+     .explore{
+      display: flex;
+      align-items: center;
+       
+     }
+
+    
+     
+    
+    </style>
+</head>
+<body>
+        <header>
+            <nav class="navbar">
+              <a href="#" class="nav-branding">Swift Stay</a>
+      
+              <ul class="nav-menu">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">ABOUT US</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">ACCOUNT</a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">NOTIFICATION</a>
+                </li>
+              </ul>
+      
+              <div class="hamburger">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+              </div>
+            </nav>
+          </header>
+             <div class="back"><a href=""></a></div>
+             <div class="container">
+      
+              <div class="child1 child"></div>
+              <div class="child2 child"></div>
+              <div class="child3 child"></div>
+              <div class="item1 item" id=""><h1>Stay...</h1>
+                  <h2 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                      Dive into the world of flavors.
+                      </h2>
+                      <a href="rooms.html" class="explore">Explore <i class="fa fa-arrow-right"></i></a></div>
+
+              <div class="item2 item" id=""><h1>Din...</h1>
+                  <h2 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                    Dive into the world of flavors.
+                    </h2>
+                    <a href="rooms.html" class="explore">Explore <i class="fa fa-arrow-right"></i></a></div>
+
+              <div class="item3 item" id=""><h1>Celebrate...</h1>
+                  <h2 style="font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                    Grand event spaces tailored for you.
+                    </h2>
+                     <a href="event.html" class="explore">Explore <i class="fa fa-arrow-right"></i></a></div>
+                      
+                </div>
+             </div>
+            </div>
+      
+      
+      
+      
+          <script>
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+      
+            hamburger.addEventListener("click", () => {
+              hamburger.classList.toggle("active");
+              navMenu.classList.toggle("active");
+            });
+      
+            document.querySelectorAll(".nav-link").forEach((n) =>
+              n.addEventListener("click", () => {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+              })
+            );
+          </script>
+        
+
+     </div>
+    </body>
+</html>

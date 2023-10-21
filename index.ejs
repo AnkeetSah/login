@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@500&family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Edu+SA+Beginner:wght@600&family=Preahvihear&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caprasimo&display=swap" rel="stylesheet">
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,300&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <style>
+      body {
+        background: url("https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80");
+        background-size: cover;
+        background-repeat:no-repeat ; 
+        font-family: "Noto Serif", serif;
+        font-family: "Rubik", sans-serif;
+        display: flex;
+        min-height: 100vh;
+
+        justify-content: center;
+        align-items:center;
+      }
+
+      .c1 , .c2{
+        width: 400px;
+        height: 60%;
+        
+      }
+
+      .c1{
+       
+        height: 460px;
+        width: 500px;
+       /* display: none; */
+        background: transparent;
+            /* backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(0,0,0,.5); */
+            margin-right: 40px;
+            /* backdrop-filter: blur(4px); */
+      } 
+      .c2{
+        background-color: rgb(220, 133, 18);
+      }
+
+
+      
+      .c2{
+            min-width: 10%;
+            height: 80%;
+            position: relative;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .5);
+            border-radius:  20PX ;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 30px rgba(0,0,0,.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+         }
+         .c2 .form-box{
+            width: 100%;
+            padding: 40px;
+         }
+
+         .c2.active .form-box{
+            width: 90%;
+            padding: 40px;
+         }
+
+         .c2 .form-box.login{
+          transition: transform .18s ease;
+          transform: translateX(0);
+         }
+
+         .c2.active .form-box.login {
+             transition: none;
+            
+             transform: translateX(-400px);
+         }
+         
+         .c2 .form-box.Register{
+         position: absolute;
+         transition: none;
+         transform: translateX(400px);
+         
+         }
+
+
+         .c2.active .form-box.Register{
+          transition: transform .18s ease;
+          transform: translateX(0);
+         }
+
+
+         .form-box h2{
+            font-size: 2em;
+            color: black;
+            text-align: center;
+         }
+
+         .input-box{
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border-bottom: 2px solid #162938;
+            margin: 30px 0px;
+         }
+
+       
+       .input-box label{
+        position: absolute;
+        top: 50%;
+        left: 5px;
+        transform: translateY(-50%);
+        font-size: 1em;
+        font-weight: 500;
+        pointer-events: none;
+        transition: .5s;
+        
+       }
+
+       
+      
+      .input-box input{
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        border: none;
+        outline: none;
+        font-size: 1em;
+        color: #162938;
+        font-weight: 600;
+        padding: 0 35px 0 5px;
+      }
+
+     .input-box .icon{
+        position: absolute;
+        right: 8px;
+        font-size: 1.2em;
+        color: #162938;
+        line-height: 57px;
+     }
+
+     .remeber-forgot{
+      font-size: .9em;
+      columns: #162938;
+      font-weight: 500;
+      margin: -15px 0 15px;
+      display: flex;
+      justify-content: space-between;
+     }
+
+
+     .remeber-forgot label input{
+        accent-color: #162938;
+        margin: 3px;
+     }
+
+     .remeber-forgot a{
+      /* color: #162938; */
+      color: white;
+      text-decoration: none;
+     }
+
+     .remeber-forgot a:hover{
+      text-decoration: underline;
+     }
+
+     .btn{
+      width: 100%;
+      height: 45px;
+      /* background-color: #162938; */
+      background-color:antiquewhite;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 1em;
+    color: rgb(25, 6, 6);
+    font-weight: 500;
+    -webkit-text-stroke:.1px rgb(9, 2, 2);
+    font-weight: bolder;
+     }
+
+     .login-register{
+      font-size: .9em;
+      color: #162938;
+       text-align: center;
+       font-weight: 500;
+       margin:25px 0 10px ;
+       /* margin: 30px 0px; */
+     }
+
+
+     .login-register p a{
+      /* color: #162938; */
+      text-decoration: none;
+      font-weight: 600;
+      color: rgb(250, 252, 254);
+     }
+
+     .login-register p a:hover{
+        text-decoration: underline;
+     }
+      @media (max-width:768px){
+         .c1{
+            display: none;
+         }
+        
+         .c2{
+          border-left: 2px solid rgba(255, 255, 255, .5);
+          border-radius: 20px;
+         }
+
+         
+
+      }
+
+      .c1{
+        color: rgb(225, 218, 231);
+       position: relative;
+      }
+
+      .name{
+        /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-se*/
+        position: absolute;
+        /* color: #f8f7f0; */
+        color: #dfdfd3;
+        font-size: 40px;
+        -webkit-text-stroke:.1px black;
+        font-weight: bolder;
+        font-family: 'Merriweather', serif;
+        top: 35%;
+        /* text-align: center; */
+        font-family: 'Caprasimo', cursive;
+        text-shadow: .1em .1em 0 hsl(202, 39%, 10%);
+        
+      }
+
+      .wel{
+        font-weight: bolder;
+        font-size: 40px;
+          position: absolute;
+      /* color: #200922; */
+      /* color: #420547; */
+      color: rgb(234, 179, 107);
+       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+      top: 25%;
+      left: 110px;
+      -webkit-text-stroke:.4px #050505;
+     
+      text-shadow: .1em .1em 0 hsl(202, 39%, 10%);
+      }
+      
+      .para{
+      position: absolute;
+        color: rgb(226, 221, 234);
+      
+       padding: 5px;
+        font-size:28px;
+        top: 51%;
+        border-radius: 0 0 0 20px;
+        border-radius: 50px;
+        font-family: 'Roboto Slab', serif;
+        /* font-family: 'Merriweather', serif; */
+        /* text-align: center; */
+        text-shadow: .1em .1em 0 hsl(202, 39%, 10%);
+        
+      }
+
+      .brand{
+        position: absolute;
+        top: 0px;
+        background-color: antiquewhite;
+        width: 100%;
+        padding-left: 30px;
+        color: #212526;
+    text-decoration: none;
+    font-weight: bolder;
+    -webkit-text-stroke:.1px rgb(24, 5, 5);
+      }
+
+      .form-box h2{
+        color: #33053c;
+      }
+     
+      .button{
+         color: #33053c;
+         text-decoration: none;
+      }
+       
+      .c2{
+        height: 520px;
+      }
+
+      .login-register{
+        color: wheat;
+      }
+      .register-link{
+        color: wheat;
+      }
+      
+      .fa-phone{
+        font-weight: bolder;
+      }
+      </style>
+  </head>
+  <body>
+    <div class="brand"><h1>Swift Stay</h1></div>
+    <div class="c1">
+      <span class="wel">Welcome to</span>
+        <h1 class="name">Celestial Haven Hotel.
+        </h1>
+        <h2 class="para">
+         Unveil a world of luxury and tranquility at our picturesque hotel, 
+         where every moment is a masterpiece of comfort and beauty
+        </h2>
+    </div>
+    <div class="c2">
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action="/login" method="post">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" name="email" id="" class="input">
+                    <label for="" id="i1">Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" name="password" id="" class="input">
+                    <label for="" id="i2">Password</label>
+                </div>
+
+                <div class="remeber-forgot">
+                    <label for="" id=""><input type="checkbox" name="" id="">Remember me</label>
+                    <a href="">Forgot Password</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-box Register">
+          <h2>Registration</h2>
+          <form action="/submit" method="post">
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="person"></ion-icon></ion-icon></span>
+                  <input type="text" name="name" id="" class="input">
+                  <label for="" id="i3">Username</label>
+              </div>
+              
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                  <input type="email" name="email" id="" class="input">
+                  <label for="" id="i4">Email </label>
+              </div> 
+               <div class="input-box">
+                  <span class="icon"><i class='fa fa-mobile-phone' style="font-size: 30px;"></i></span>
+                  <input type="number" name="number" id="" class="input">
+                  <label for="" id="i5">Phone Number </label>
+              </div>
+
+
+              <div class="input-box">
+                  <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                  <input type="password" name="password" id="" class="input">
+                  <label for="" id="i6">Password</label>
+              </div>
+
+              <div class="remeber-forgot">
+                  <!-- <label for=""><input type="checkbox" name="" id="">I agree to the terms and condition</label> -->
+                  <!-- <a href="">Forgot Password</a> -->
+              </div>
+              <button type="submit" class="btn">Register</button>
+
+              <div class="login-register">
+                  <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+              </div>
+          </form>
+      </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<script>
+  const wrapper=document.querySelector('.c2');
+  const loginLink=document.querySelector('.login-link');
+  const registerLink=document.querySelector('.register-link');
+
+  registerLink.addEventListener('click',()=>{
+   wrapper.classList.add('active');
+    console.log("hello");
+  })
+  
+  loginLink.addEventListener('click',()=>{
+    wrapper.classList.remove('active');
+  })
+
+  const label=document.querySelectorAll("label");
+  const input=document.querySelectorAll(".input");
+  const id1=document.querySelector("#i1");
+  const id2=document.querySelector("#i2");
+  const id3=document.querySelector("#i3");
+  const id4=document.querySelector("#i4");
+  const id5=document.querySelector("#i5");
+  const id6=document.querySelector("#i6");
+  const inputs=Array.from(input);
+  const labels=Array.from(label);
+  inputs.forEach((element,index)=>{
+    element.addEventListener("input",()=>{
+      switch(index){
+        case 0:
+          id1.style.top="-5px";
+          break;
+           case 1:
+          id2.style.top="-5px";          
+          break;
+           case 2:
+          id3.style.top="-5px";
+          console.log(element);
+          break; 
+          case 3:
+          id4.style.top="-5px";
+          break;
+          case 4:
+          id5.style.top="-5px";
+          break;
+           case 5:
+          id6.style.top="-5px";
+          break;
+          
+      }
+    })
+  })
+</script>
+  </body>
+</html>
